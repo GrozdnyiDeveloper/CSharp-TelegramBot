@@ -29,7 +29,7 @@ namespace TelegramBot
             var isCommand = true;
             switch (message.Text.ToLower())
             {
-                case "/start":
+                case not null when message.Text.Contains("/start") || message.Text.Contains("/strt"):
                     text = "Добро пожаловать в бота! Введите /help чтобы увидеть список доступных команд.";
                     break;
 
@@ -47,7 +47,7 @@ namespace TelegramBot
                         "Email: ylesov.ivan@gmail.com\n" +
                         "Github: https://github.com/GrozdnyiDeveloper";
                     break;
-
+                    
                 case not null when message.Text.ToLower().Contains("/inn") || message.Text.ToLower().Contains("/okved"):
                     foreach (var inn in message.Text.ToLower().Split(" "))
                     {
